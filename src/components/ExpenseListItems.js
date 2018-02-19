@@ -1,8 +1,11 @@
 import React from 'react';
-const ExpenseListItem = ({ description, amount, createdAt})=>(
+import {Link} from 'react-router-dom';
+const ExpenseListItem = ({ id, dispatch, description, amount, createdAt})=>(
     <div>
-    <h3>{description}</h3>
+    <h3><Link to={`/edit/${id}`}>{description}</Link></h3>
     <h4>{amount}-{createdAt}</h4>
+       
     </div>
 );
+
 export default ExpenseListItem;
