@@ -1,4 +1,5 @@
 import selectExpense from '../../selectors/expenses';
+import moment from 'moment';
 const expenses = [{
     id: 1,
     description: 'Gum',
@@ -6,18 +7,69 @@ const expenses = [{
     amount: 195,
     createdAt: 0
 }, {
-    id: 1,
+    id: 2,
     description: 'Rent',
     note: '',
     amount: 200156,
-    createdAt: -1000
+    createdAt: moment(0).subtract(4,'days').valueOf()
 }, {
-    id: 1,
+    id: 3,
     description: 'Coffee',
     note: '',
-    amount: 195,
-    createdAt: 1000
+    amount: 250,
+        createdAt: moment(0).add(4, 'days').valueOf()
 }]
 test('test for selectors', () => {
-    const result = selectExpense();
-}) 
+    const filters={
+        text:'e',
+        sortBy:'date',
+        startDate:undefined,
+        endDate:undefined
+    };
+    const result = selectExpense(expenses,filters);
+    expect(result).toEqual([expenses[2],expenses[1]]);
+});
+
+test('should filter by startDate',()=>{
+    const filters={
+        text:'',
+        sortBy:'date',
+        startDate:moment(0),
+        endDate:undefined
+    };
+    const result = selectExpense(expenses,filters);
+    expect(result).toEqual([expenses[2],expenses[0]]);
+});
+
+test('should filter by endDate',()=>{
+    const filters={
+        text:'',
+        sortBy:'date',
+        startDate:undefined,
+        endDate:moment(0)
+    };
+    const result=selectExpense(expenses,filters);
+    expect(result).toEqual([expenses[0],expenses[1]]);
+});
+
+test('should filter by right date order',()=>{
+    const filters={
+        text: '',
+        sortBy: 'date',
+        startDate: undefined,
+        endDate: undefined
+    };
+    const result = selectExpense(expenses, filters);
+    expect(result).toEqual([expenses[2], expenses[0], expenses[1]]);
+})
+
+test('should filter by right date order', () => {
+    const filters = {
+        text: '',
+        sortBy: 'amount',
+        startDate: undefined,
+        endDate: undefined
+    };
+    const result = selectExpense(expenses, filters);
+    expect(result).toEqual([expenses[1], expenses[2], expenses[0]]);
+})
