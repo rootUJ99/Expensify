@@ -1,5 +1,5 @@
 import {addExpense, removeExpense, editExpense } from '../../actions/expenses';
-
+//remove expense action
 test('should setup remove expense action object', () => {
     const action = removeExpense({ id: '123abc' });
     expect(action).toEqual({
@@ -7,9 +7,7 @@ test('should setup remove expense action object', () => {
         id: '123abc'
     })
 });
-
-
-
+//edit expense action
 test('should setup edit expense action object', () => {
     const action = editExpense(123,{'note':'got updated'});
     expect(action).toEqual({
@@ -18,7 +16,7 @@ test('should setup edit expense action object', () => {
         updates: { 'note': 'got updated' }
     })
 });
-
+//add expense action
 test('should setup add expense action object with provided values',()=>{
     const expenseData={
         description:'Rent',
@@ -35,7 +33,7 @@ test('should setup add expense action object with provided values',()=>{
         }
     })
 });
-
+//add expense with dafault values
 test('should setup add expense action object with default values', () => {
     const expenseData = {
         description: '',

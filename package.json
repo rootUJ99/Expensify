@@ -14,11 +14,15 @@
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.0.0",
     "css-loader": "^0.28.8",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
+    "enzyme-to-json": "3.0.1",
     "jest": "20.0.4",
     "live-server": "^1.2.0",
     "moment": "2.18.1",
     "node-sass": "^4.7.2",
     "normalize.css": "^7.0.0",
+    "raf": "3.3.2",
     "react": "^16.2.0",
     "react-addons-shallow-compare": "15.6.0",
     "react-dates": "12.7.0",
@@ -26,6 +30,7 @@
     "react-modal": "^3.1.10",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
+    "react-test-renderer": "16.0.0",
     "redux": "^3.7.2",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
@@ -39,7 +44,7 @@
     "server": "live-server public/",
     "build": "webpack --watch",
     "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch",
-    "test":"jest"
+    "test": "jest --config=jest.config.json"
   },
   "devDependencies": {
     "eslint": "^4.11.0",
