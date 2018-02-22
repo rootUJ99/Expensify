@@ -12,16 +12,16 @@ import storeConfigure from './store/storeConfigure';
 
 const store = storeConfigure();
 
-store.dispatch(addExpense({ description: 'Water Bill',amount:4500 }));
-store.dispatch(addExpense({ description: 'Gas Bill',amount:109500 }));
-store.dispatch(addExpense({ description: 'Light Bill',createdAt:1000 }));
+// store.dispatch(addExpense({ description: 'Water Bill',amount:4500 }));
+// store.dispatch(addExpense({ description: 'Gas Bill',amount:109500 }));
+// store.dispatch(addExpense({ description: 'Light Bill',createdAt:1000 }));
 //store.dispatch(setTextFilter('Gas'));
     const state = store.getState();
     const visibility = getVisibilityExpenses(state.expenses, state.filters);
     console.log(visibility);
 //console.log(store.getState());
 
-
+// console.log('test');
 const jsx=(
     <Provider store={store}>
         <AppRouter />
