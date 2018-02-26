@@ -7,7 +7,8 @@ import ExpensifyDashBoard from '../components/ExpensifyDashBoard';
 import HelpExpanse from '../components/HelpExpanse';
 import Header from '../components/Header';
 import NotFound from '../components/NotFound';
-
+// import Total from '../components/ExpensesTotal';
+//all the routes resides here 
 let AppRouter = ()=>(
     <BrowserRouter>
         <div>
@@ -16,6 +17,7 @@ let AppRouter = ()=>(
                 <Route path="/" component={ExpensifyDashBoard} exact={true} />
                 <Route path="/help" component={HelpExpanse} />
                 <Route path="/create" component={AddExpanse} />
+                {/* <Route path="/total" component={Total} /> */}
                 <Route path="/edit/:id" component={EditExpanse} />
                 <Route component={NotFound} />
             </Switch>

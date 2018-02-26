@@ -7,6 +7,7 @@ const Header = () => (
         <NavLink to="/" activeClassName="active-nav" exact={true}>Dashboard</NavLink>
         <NavLink to="/create" activeClassName="active-nav">Create</NavLink>
         <NavLink to="/edit" activeClassName="active-nav">Edit</NavLink>
+        
     </header>
 );
 export default Header;

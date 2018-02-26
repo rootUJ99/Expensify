@@ -2,11 +2,11 @@ import React from 'react';
 import { AddExpanse } from '../../components/AddExpanse'
 import { shallow } from 'enzyme';
 import expenses from '../fixtures/expenses';
-let history, wrapper, addExpense;
+let history, wrapper, startAddExpense;
 beforeEach(() => {
-    addExpense = jest.fn();
+    startAddExpense = jest.fn();
     history = { push: jest.fn() };
-    wrapper = shallow(<AddExpanse addExpense={addExpense} history={history} />);
+    wrapper = shallow(<AddExpanse startAddExpense={startAddExpense} history={history} />);
 });
 test('should render AddExpense correctly', () => {
     expect(wrapper).toMatchSnapshot();
@@ -15,5 +15,5 @@ test('should render AddExpense correctly', () => {
 test('should handle addExpense', () => {
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[1]);
     expect(history.push).toHaveBeenLastCalledWith('/');
-    expect(addExpense).toHaveBeenLastCalledWith(expenses[1]);
+    expect(startAddExpense).toHaveBeenLastCalledWith(expenses[1]);
 });
