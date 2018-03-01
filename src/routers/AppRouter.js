@@ -1,27 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
 import AddExpanse from '../components/AddExpanse';
 import EditExpanse from '../components/EditExpanse';
 import ExpensifyDashBoard from '../components/ExpensifyDashBoard';
 import HelpExpanse from '../components/HelpExpanse';
-import Header from '../components/Header';
 import NotFound from '../components/NotFound';
+import LoginPage from '../components/LoginPage';
+import createHistory from 'history/createBrowserHistory';
+import PrivateRoute from  './PrivateRoutes';
+import PublicRoute from './PublicRoutes';
+export const history = createHistory();
 // import Total from '../components/ExpensesTotal';
 //all the routes resides here 
 let AppRouter = ()=>(
-    <BrowserRouter>
+    <Router history={history}>
         <div>
-            <Header />
             <Switch>
-                <Route path="/" component={ExpensifyDashBoard} exact={true} />
-                <Route path="/help" component={HelpExpanse} />
-                <Route path="/create" component={AddExpanse} />
-                {/* <Route path="/total" component={Total} /> */}
-                <Route path="/edit/:id" component={EditExpanse} />
-                <Route component={NotFound} />
+                <PublicRoute path="/" component={LoginPage} exact={true}/>
+                <PrivateRoute path="/dashboard" component={ExpensifyDashBoard} />
+                <PrivateRoute path="/create" component={AddExpanse} />
+                <PrivateRoute path="/edit/:id" component={EditExpanse} />
+                <PublicRoute component={NotFound} />
             </Switch>
         </div>
-    </BrowserRouter>
+    </Router>
 );
 export default AppRouter;

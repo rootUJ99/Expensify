@@ -8,8 +8,7 @@ exports[`test for header 1`] = `
   <NavLink
     activeClassName="active-nav"
     ariaCurrent="true"
-    exact={true}
-    to="/"
+    to="/dashboard"
   >
     Dashboard
   </NavLink>
@@ -18,14 +17,12 @@ exports[`test for header 1`] = `
     ariaCurrent="true"
     to="/create"
   >
-    Create
+    Create Expense
   </NavLink>
-  <NavLink
-    activeClassName="active-nav"
-    ariaCurrent="true"
-    to="/edit"
+  <button
+    onClick={[Function]}
   >
-    Edit
-  </NavLink>
+    Logout
+  </button>
 </header>
 `;
