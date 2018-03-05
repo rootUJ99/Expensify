@@ -34,7 +34,7 @@ const checkIfRender = () => {
         hasRender = true;
     }
 }
-ReactDOM.render(<LoadingPage />, document.getElementById('app'));
+
 
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -53,5 +53,5 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
-
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
