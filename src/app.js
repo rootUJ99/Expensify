@@ -11,6 +11,7 @@ import 'react-dates/lib/css/_datepicker.css';
 import storeConfigure from './store/storeConfigure';
 import { firebase } from './firebase/firebase';
 import { LoginPage } from './components/LoginPage';
+import LoadingPage from './components/LoadingPage';
 const store = storeConfigure();
 
 // store.dispatch(addExpense({ description: 'Water Bill',amount:4500 }));
@@ -33,6 +34,7 @@ const checkIfRender = () => {
         hasRender = true;
     }
 }
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 
 firebase.auth().onAuthStateChanged((user) => {
@@ -52,5 +54,4 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
 

@@ -1,0 +1,27 @@
+.button{
+    background: $dark-blue;
+    border: 0;
+    border-radius: 3em;
+    width: 75px;
+    margin-left:3px;
+    color: white;
+    box-shadow: 3px 2px rgb(53, 48, 48);
+    font-weight: bold;
+}
+.button2{
+    background: $light-blue;
+    border:none;
+    color: white;
+    font-size: 1.2em;
+    font-weight:300;
+    padding: $s-size;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+}
+.button2--link{
+    background: none;
+}
+.button2--remove{
+    background: #ce5e5e;
+}

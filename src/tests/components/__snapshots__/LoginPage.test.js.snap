@@ -1,9 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`testing login form 1`] = `
-<div>
-  <button>
-    Login
-  </button>
+<div
+  className="box-layout"
+>
+  <div
+    className="box-layout__box"
+  >
+    <h1>
+      Expensify Application
+    </h1>
+    <button
+      className="button"
+    >
+      Login
+    </button>
+  </div>
 </div>
 `;
